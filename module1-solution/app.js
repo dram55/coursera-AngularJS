@@ -1,30 +1,33 @@
-'use strict';
+(function () {
 
-var app = angular.module("lunchCheck", []);
+   'use strict';
 
-app.controller("LunchCheckController", LunchCheckController);
-LunchCheckController.$inject = ['$scope'];
+   var app = angular.module("lunchCheck", []);
 
-function LunchCheckController($scope) {
-   var errorMessage = "Too Much!";
-   var successMessage = "Enjoy";
+   app.controller("LunchCheckController", LunchCheckController);
+   LunchCheckController.$inject = ['$scope'];
 
-   $scope.items = "";
+   function LunchCheckController($scope) {
+      var errorMessage = "Too Much!";
+      var successMessage = "Enjoy";
 
-   $scope.checkIfTooMuchFood = function () {
-      var itemArray = $scope.items.split(",").filter(element => element.trim().length > 0);
+      $scope.items = "";
 
-      if (itemArray.length > 3) {
-         $scope.message = errorMessage;
-      } else if (itemArray.length > 0 && itemArray.length <= 3) {
-         $scope.message = successMessage;
-      } else {
-         $scope.message = "Please enter data first";
+      $scope.checkIfTooMuchFood = function () {
+         var itemArray = $scope.items.split(",").filter(element => element.trim().length > 0);
+
+         if (itemArray.length > 3) {
+            $scope.message = errorMessage;
+         } else if (itemArray.length > 0 && itemArray.length <= 3) {
+            $scope.message = successMessage;
+         } else {
+            $scope.message = "Please enter data first";
+         }
+      }
+
+      $scope.isSuccessMessage = function (message) {
+         if (message === successMessage) return true;
+         else return false;
       }
    }
-
-   $scope.isSuccessMessage = function(message) {
-      if(message === successMessage) return true;
-      else return false;
-   }
-}
+})();
