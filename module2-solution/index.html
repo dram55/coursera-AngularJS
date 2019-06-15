@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ShoppingListCheckOff">
+
+<head>
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link rel="stylesheet" href="style.css">
+
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+   <script src="scripts/app.js"></script>
+   <script src="scripts/services/shoppingListService.js"></script>
+   <script src="scripts/controllers/boughtController.js"></script>
+   <script src="scripts/controllers/toBuyController.js"></script>
+   <title>Module 2 Solution</title>
+</head>
+
+<body>
+   <div class="container">
+      <h1>Shopping List</h1>
+
+      <div class="row">
+         <div class="col col-md-6" ng-controller="ToBuyController as toBuy">
+            <h3>To Buy</h3>
+            <ul ng-repeat="item in toBuy.shoppingList" class="list-group">
+               <li class="list-group-item">
+                  <span>Buy {{item.quantity}} {{item.name}}</span>
+                  <button class="btn btn-success right" ng-click="toBuy.buyItem($index);">Buy</button>
+               </li>
+            </ul>
+            <div ng-if="toBuy.isEverythingBought();" class="alert alert-light">
+               <em>Everything is bought.</em>
+            </div>
+         </div>
+
+         <div class="col col-md-6" ng-controller="AlreadyBoughtController as bought">
+            <h3>Already Bought</h3>
+            <ul ng-repeat="item in bought.boughtList" class="list-group">
+               <li class="list-group-item" ng-click="">
+                  <span>Bought {{item.quantity}} {{item.name}}</span>
+               </li>
+            </ul>
+            <div ng-if="bought.isNothingBought();" class="alert alert-light">
+               <em>Nothing bought yet.</em>
+            </div>
+         </div>
+      </div>
+   </div>
+</body>
+
+</html>
