@@ -31,6 +31,8 @@
 
       ctrl.removeItem = function(itemIndex) {
          ctrl.found.splice(itemIndex,1);
+         if (ctrl.found.length === 0) 
+            ctrl.message = "You don't want anything...";
       }
 
       ctrl.reportNothingFound = function() {
