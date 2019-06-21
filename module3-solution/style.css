@@ -1,0 +1,17 @@
+.btn {
+   margin-top:1em;
+}
+
+.card {
+   animation: fadein .4s
+}
+
+.menu-item-card {
+   height:20em;
+}
+
+
+@keyframes fadein {
+   from { opacity: 0; }
+   to   { opacity: 1; }
+}

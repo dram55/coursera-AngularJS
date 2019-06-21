@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="NarrowItDownApp">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link rel="stylesheet" href="style.css">
+
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+   <script src="app.js"></script>
+   <script src="service.js"></script>
+   <script src="directive.js"></script>
+   <title>Module 3 Solution</title>
+</head>
+<body>
+   <div class="container" ng-controller="NarrowItDownController as ctrl">
+      <h1>David's Menu Search</h1>
+      <p class="form-text text-muted">Search and narrow down item on the menu.</p>
+      <div class="form-group">
+        <input type="text"
+          class="form-control" ng-model="ctrl.menuFilter" placeholder="Menu Item">
+        <button type="button" class="btn btn-primary" ng-click="ctrl.getMenu();">Narrow It Down For Me!</button>
+      </div>
+      <div ng-show="ctrl.message" class="text-muted">{{ctrl.message}}</div>
+      <menu-items found-items="ctrl.found" remove-item="ctrl.removeItem(itemIndex)"></menu-items>
+   </div>
+</body>
+</html>
