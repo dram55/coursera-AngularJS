@@ -9,7 +9,6 @@
       return {
          restrict: 'E',
          templateUrl: 'menuitems.template.html',
-         link: MenuItemLink,
          scope: {
             foundItems: '<',
             removeItem: '&'
