@@ -3,7 +3,7 @@
 
    var app = angular.module('NarrowItDownApp');
    app.service('MenuSearchService',MenuSearchService);
-   app.constant('apiUrl', "http://davids-restaurant.herokuapp.com/")
+   app.constant('apiUrl', "https://davids-restaurant.herokuapp.com/")
 
    MenuSearchService.inject = ['$http', '$q', 'apiUrl'];
    function MenuSearchService($http, $q, apiUrl) {
